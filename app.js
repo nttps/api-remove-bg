@@ -46,7 +46,7 @@ app.post("/upload", upload(dateDir).single("file"), async (req, res) => {
     }
 
     try {
-        const processedImagesDir = path.join(`processed_images/${dateDir}`);
+        const processedImagesDir = path.join(`./processed_images/${dateDir}`);
 
         if (!existsSync(processedImagesDir)) {
             mkdirSync(processedImagesDir);
