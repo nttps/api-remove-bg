@@ -10,7 +10,7 @@ const upload = (folderName) => {
     return (imageUpload = multer({
         storage: multer.diskStorage({
             destination: function (req, file, cb) {
-                const path = routePatch + `/uploads/${folderName}/`;
+                const path = routePatch + `../uploads/${folderName}/`;
                 mkdirSync(path, { recursive: true });
                 cb(null, path);
             },
