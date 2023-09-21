@@ -1,0 +1,11 @@
+/* Import Tailwind CSS styles */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Add custom styles */
+/* Example:
+.custom-button {
+  /* Your custom button styles here */
+/* }
+*/

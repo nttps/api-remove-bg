@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>อัพโหลดรูป</title>
+  <link href="/public/styles.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+  <div class="container mx-auto p-4">
+    <h1 class="text-3xl font-semibold text-gray-800 mb-4">ลบพื้นหลังรูปภาพ</h1>
+    <form id="upload-form" enctype="multipart/form-data" class="mb-4">
+      <div class="flex items-center space-x-2">
+        <input type="file" id="image-input" accept="image/*" required class="hidden">
+        <label for="image-input" class="px-4 py-2 bg-blue-500 text-white rounded-full cursor-pointer hover:bg-blue-600">เลือกรูป</label>
+        <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded-full cursor-pointer hover:bg-blue-600">อัพโหลด</button>
+      </div>
+    </form>
+    <div id="progress-container" class="hidden">
+      <div class="relative pt-1">
+        <div class="flex mb-2 items-center justify-between">
+          <div>
+            <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blue-600 bg-blue-200">
+              Upload Progress
+            </span>
+          </div>
+          <div class="text-right">
+            <span id="progress-label" class="text-xs font-semibold inline-block text-blue-600">
+              0%
+            </span>
+          </div>
+        </div>
+        <div class="relative w-full bg-blue-200 rounded-full">
+          <div id="upload-progress" class="absolute top-0 h-2 bg-blue-500 rounded-full"></div>
+        </div>
+      
+      </div>
+    </div>
+     <div id="progress" class="text-xl"></div>
+
+    <div id="result-container" class="mt-4">
+      <img src="" id="processed-image" class="w-[500px] h-auto" alt="">
+    </div>
+  </div>
+  <script src="/public/script.js"></script>
+</body>
+</html>
