@@ -4,10 +4,13 @@ const multer = require("multer");
 const { mkdirSync } = require("fs");
 
 const upload = (folderName) => {
+
+    const routePatch = path.resolve(__dirname);
+
     return (imageUpload = multer({
         storage: multer.diskStorage({
             destination: function (req, file, cb) {
-                const path = `/uploads/${folderName}/`;
+                const path = routePatch + `/uploads/${folderName}/`;
                 mkdirSync(path, { recursive: true });
                 cb(null, path);
             },
