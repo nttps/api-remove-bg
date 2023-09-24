@@ -3,14 +3,16 @@ const multer = require("multer");
 
 const { mkdirSync } = require("fs");
 
-const upload = (folderName) => {
+const upload = () => {
 
     const routePatch = path.resolve(__dirname);
+
+    const dateDir = new Date().toLocaleDateString("en-ca");
 
     return (imageUpload = multer({
         storage: multer.diskStorage({
             destination: function (req, file, cb) {
-                const path = routePatch + `/../uploads/${folderName}/`;
+                const path = routePatch + `/../uploads/${dateDir}/`;
                 mkdirSync(path, { recursive: true });
                 cb(null, path);
             },
