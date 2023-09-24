@@ -63,7 +63,7 @@ pip install rembg[cli] # for library + cli
 ## ติดตั้ง Nodejs
 ติดตั้ง NodeJS
 
-พิมพ์คำสั่งเพื่อมติดตั้ง Package 
+พิมพ์คำสั่งเพื่อติดตั้ง Package 
 
 ```bash
 npm install
