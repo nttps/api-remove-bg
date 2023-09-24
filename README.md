@@ -69,7 +69,7 @@ pip install rembg[cli] # for library + cli
 npm install
 ```
 
-## ติดตั้ง Nodejs
+## การใช้งาน
 
 ### Dev
 
