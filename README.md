@@ -88,17 +88,16 @@ npm run start
 ## Upload File (/upload-file)
 
 ```
-    const formData = new FormData();
-    formData.append('file', e.target.files[0]);
+const formData = new FormData();
+formData.append('file', e.target.files[0]);
 
-    
-    fetch('localhost:port/upload-file', {
-        body: formData,
-        method: 'POST',
-    })  
-    .then(response => response.blob())
-    .then(blob => {
-        const fileImage = URL.createObjectURL(blob)
-    })
-    .catch(e => isAlert.value = true)
+fetch('localhost:port/upload-file', {
+    body: formData,
+    method: 'POST',
+})  
+.then(response => response.blob())
+.then(blob => {
+    const fileImage = URL.createObjectURL(blob)
+})
+.catch(e => isAlert.value = true)
 ```
