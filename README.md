@@ -45,15 +45,15 @@ $ sudo apt-get install python3.8 python3-pip
 $ python -v
 ```
 
-### ติดตั้ง Libraies ที่ใช้งานสำหรับ Python
+## ติดตั้ง Libraies ที่ใช้งานสำหรับ Python
 
-## Requirements
+### Requirements
 
 ```
 python: >3.7, <3.12
 ```
 
-## Installation
+### Installation
 
 ```bash
 pip install rembg # for library
