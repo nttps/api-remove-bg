@@ -99,5 +99,5 @@ fetch('localhost:port/upload-file', {
 .then(blob => {
     const fileImage = URL.createObjectURL(blob)
 })
-.catch(e => isAlert.value = true)
+.catch(e => console.error(e))
 ```
