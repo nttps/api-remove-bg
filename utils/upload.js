@@ -7,12 +7,10 @@ const upload = () => {
 
     const routePatch = path.resolve(__dirname);
 
-    const dateDir = new Date().toLocaleDateString("en-ca");
-
     return (imageUpload = multer({
         storage: multer.diskStorage({
             destination: function (req, file, cb) {
-                const path = routePatch + `/../uploads/${dateDir}/`;
+                const path = routePatch + `/../temp_uploads/`;
                 mkdirSync(path, { recursive: true });
                 cb(null, path);
             },
