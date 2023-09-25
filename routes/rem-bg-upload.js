@@ -17,8 +17,7 @@ router.post("/upload-file", upload().single("file"), async (req, res) => {
     if (!req.file) {
         return res.status(400).send("No file uploaded.");
     }
-
-
+    
     try {
         const processedImagesDir = path.join(`./processed_images`);
 
