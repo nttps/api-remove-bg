@@ -15,7 +15,5 @@ try:
             image = Image.open(input_image_file)
             output_image = remove(image, session)
             output_image.save(output_image_file) # save result
-
-    print("Background removed. Output image saved to", output_image_path)
 except Exception as e:
     print("An error occurred:", str(e))

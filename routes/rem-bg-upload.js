@@ -18,10 +18,9 @@ router.post("/upload-file", upload().single("file"), async (req, res) => {
         return res.status(400).send("No file uploaded.");
     }
 
-    const dateDir = new Date().toLocaleDateString("en-ca");
 
     try {
-        const processedImagesDir = path.join(`./processed_images/${dateDir}`);
+        const processedImagesDir = path.join(`./processed_images`);
 
         if (!existsSync(processedImagesDir)) {
             mkdirSync(processedImagesDir);
@@ -36,23 +35,12 @@ router.post("/upload-file", upload().single("file"), async (req, res) => {
             outputImagePath,
         ]);
         
-
-        pythonProcess.stdout.on("data", (data) => {
-            console.log(`Python stdout: ${data}`);
-        });
-
-        // Listen for progress updates from the Python script
-        pythonProcess.stderr.on("data", (data) => {
-            console.log(data);
-        });
-
         pythonProcess.on("close", (code) => {
             if (code === 0) {
 
                 fs.rmSync(inputImagePath);
-
                 const input = sharp(`${outputImagePath}`);
-                input.toBuffer(function (err, data) {
+                input.png().toBuffer(function (err, data) {
 
                     fs.rmSync(outputImagePath);
 
@@ -60,11 +48,6 @@ router.post("/upload-file", upload().single("file"), async (req, res) => {
                         .status(200)
                         .send(data);
                 });
-                // Processing is complete
-                // return res.json({
-                //     success: true,
-                //     url: getServerImageUrl(`${dateDir}/${outputImageName}`),
-                // });
             } else {
                 res.status(500).send("Error removing background.");
             }
